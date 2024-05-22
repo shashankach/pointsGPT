@@ -1,7 +1,8 @@
-import os
+import os   
 import requests
 import openai
 import json
+import jmespath
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -13,10 +14,27 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 # Initialize OpenAI
 openai.api_key = OPENAI_API_KEY
 
-def main():
-    user_prompt = "Find award availability on 15th June 2024 from LAX to LHR in economy class using bilt points"
+def check_partner(dictionary, search_term,partner):
+    # Convert search term to lowercase
+    search_term_lower = search_term.lower()
+    
+    # Create a new dictionary with lowercase keys
+    lower_dict = {k.lower(): v for k, v in dictionary.items()}
+    
+    # Check if the lowercase search term is present as a key in the dictionary
+    if search_term_lower in lower_dict:
+        # Check if the value associated with the key is None
+        if lower_dict[search_term_lower] is None:
+            return None
+        else:
+            return f"Transfer {search_term} points to {partner} at a {lower_dict[search_term_lower]} ratio."
+    else:
+        return None
 
-    print('------- Request for custom function calling ----------')
+def main():
+    user_prompt = "Find award availability on 24th may 2024 from sfo to ewr in economy class using chase points"
+
+
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": user_prompt}],
@@ -58,7 +76,7 @@ def main():
     },
     "partner": {
         "type": "string",
-        "description": "name of credit card partner associated with bank"
+        "description": "name of credit card partner associated with bank. e.g. amex, chase, citi, capital one, etc."
     },
     
 },
@@ -72,12 +90,13 @@ def main():
 
     args = response.choices[0].message.tool_calls[0]['function']['arguments']
     parsed_args = args
-    parsed_args = json.loads(parsed_args)  # In Python, this should already be a dictionary
+    parsed_args = json.loads(parsed_args)  
     partners = json.load(open('./partners.json'))
+    print(parsed_args)
 
     try:
-        print('------- Request for External API ----------')
-        print(parsed_args)
+
+        #print(parsed_args.get('end_date'))
         #print(partners)
        
         params = {
@@ -85,10 +104,10 @@ def main():
                 "take": 10,
                 "origin_airport": parsed_args['origin_airport'],
                 "destination_airport": parsed_args['destination_airport'],
-                "cabin": parsed_args.get('cabin'),
+                "cabin": parsed_args['cabin'] if parsed_args.get('cabin') else 'economy',
                 "start_date": parsed_args['start_date'],
-                "end_date": "2024-06-16", #parsed_args['end_date'],
-                # "order_by": parsed_args['order_by']
+                "end_date": parsed_args['end_date'] if parsed_args.get('end_date') else parsed_args['start_date'],
+                "order_by": parsed_args['order_by'] if parsed_args.get('order_by') else 'lowest_mileage'
             }
         headers = {
             'Partner-Authorization': SEATS_KEY,
@@ -102,25 +121,39 @@ def main():
         print('Error running Seats.aero search request')
         print(error)
         return
-    print('------- Request for natural language ----------')
-    # natural_response = openai.ChatCompletion.create(
-    #     model="gpt-4-turbo",
-    #     messages=[
-    #         {"role": "system", "content": f"" + user_prompt + "in natural language."},
-    #         {"role": "user", "content": str(api_result['data'])},
-    #         {"role": "user", "content": str(partners)}
-    #     ],
-    # )
 
     for flight in api_result["data"]:
-        print("Date:", flight["Date"])
-        print("Origin Airport:", flight["Route"]["OriginAirport"])
-        print("Destination Airport:", flight["Route"]["DestinationAirport"])
-        print("Airline:", flight["YAirlines"])
-        print("Mileage Cost (Economy):", flight["YMileageCost"])
-        print("Seats Available (Economy):", flight["YRemainingSeats"])
-        print("Direct Flight (Economy):", "Yes" if flight["YDirect"] else "No")
-        print()
+        search_term = flight['Source']
+        found_program = None
+
+       
+
+        for program, details in partners.items():
+            if search_term in program.lower():
+                found_program = (program, details)
+                break
+
+        
+
+    
+
+        if parsed_args.get('partner') and found_program:
+            print(check_partner(found_program[1], parsed_args.get('partner'), found_program[0])) if check_partner(found_program[1], parsed_args.get('partner'), found_program[0]) else None
+            
+       
+
+
+        if int(flight['YRemainingSeats']) != 0:
+            print("Flight Information:")
+            print(f"- Program: {flight['Source']}")
+            print(f"- Date: {flight['Date']}")
+            print(f"- Airline: {flight['YAirlines']}")
+            print(f"- From: {flight['Route']['OriginAirport']} to {flight['Route']['DestinationAirport']}")
+            print(f"- Economy Available: {'Yes' if flight['YAvailable'] else 'No'}")
+            print(f"- Seats Available: {flight['YRemainingSeats']}")
+            print(f"- Mileage Cost: {flight['YMileageCost']} (Direct Cost: {flight['YDirectMileageCost']})")
+            print(f"- Direct Flight: {'Yes' if flight['YDirect'] else 'No'}")
+            print("\n")
 
     # print(natural_response.choices[0].message.content)
 

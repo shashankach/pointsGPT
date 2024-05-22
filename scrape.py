@@ -9,14 +9,14 @@ def fetch_data():
     response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.content, 'lxml')
     
-    # Assuming the data is stored in a table
+
     data_list = []
     table = soup.find('table', {'class': 'tablepress tablepress-id-33 tablepress-responsive'})
     rows = table.find_all('tr')
     
     for row in rows:
         cols = row.find_all('td')
-        if len(cols) == 3:  # Ensuring each row has three columns
+        if len(cols) == 3: 
             data = {
                 'Transfer From': cols[0].text.strip(),
                 'Transfer Bonus Details': cols[1].text.strip(),
@@ -28,9 +28,5 @@ def fetch_data():
         json.dump(data_list, scrape_data, indent=4)
     
     print(data_list)
-
-# def save_to_json(data_list, filename):
-#     with open(filename, 'w') as file:
-#         json.dump(data_list, file, indent=4)
 
 fetch_data()
