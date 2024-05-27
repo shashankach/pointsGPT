@@ -30,9 +30,24 @@ def check_partner(dictionary, search_term,partner):
             return f"Transfer {search_term} points to {partner} at a {lower_dict[search_term_lower]} ratio."
     else:
         return None
+    
+
+def find_transfer_bonus(data, transfer_to, transfer_from):
+    for item in data:
+        if item["Transfer To"].lower() in transfer_to.lower() and item["Transfer From"].lower() in transfer_from.lower():
+            return f"Transfer Bonus: {item['Bonus']} (Valid until {item['End Date']})"
+    return None
+
+class_mapping = {
+    "economy": "Y",
+    "premium economy": "W",
+    "business": "J",
+    "first": "F"
+}
+
 
 def main():
-    user_prompt = "Find award availability on 24th may 2024 from sfo to ewr in economy class using chase points"
+    user_prompt = "Find award availability on 1st august 2024 from eur to sfo in economy class using chase points"
 
 
     response = openai.ChatCompletion.create(
@@ -92,7 +107,7 @@ def main():
     parsed_args = args
     parsed_args = json.loads(parsed_args)  
     partners = json.load(open('./partners.json'))
-    print(parsed_args)
+    scrape_data = json.load(open('./scrape_data.json'))
 
     try:
 
@@ -121,12 +136,14 @@ def main():
         print('Error running Seats.aero search request')
         print(error)
         return
+    
+    class_name = parsed_args['cabin']
+    class_code = class_mapping.get(class_name.lower())
 
     for flight in api_result["data"]:
         search_term = flight['Source']
         found_program = None
-
-       
+        
 
         for program, details in partners.items():
             if search_term in program.lower():
@@ -134,28 +151,25 @@ def main():
                 break
 
         
-
-    
-
         if parsed_args.get('partner') and found_program:
             print(check_partner(found_program[1], parsed_args.get('partner'), found_program[0])) if check_partner(found_program[1], parsed_args.get('partner'), found_program[0]) else None
+            print(find_transfer_bonus(scrape_data,found_program[0],parsed_args['partner'])) if find_transfer_bonus(scrape_data,found_program[0],parsed_args['partner']) else None
             
-       
-
-
-        if int(flight['YRemainingSeats']) != 0:
+        
+        
+        if class_code and int(flight[f'{class_code}RemainingSeats']) != 0:
             print("Flight Information:")
             print(f"- Program: {flight['Source']}")
             print(f"- Date: {flight['Date']}")
-            print(f"- Airline: {flight['YAirlines']}")
+            print(f"- Airline: {flight[f'{class_code}Airlines']}")
             print(f"- From: {flight['Route']['OriginAirport']} to {flight['Route']['DestinationAirport']}")
-            print(f"- Economy Available: {'Yes' if flight['YAvailable'] else 'No'}")
-            print(f"- Seats Available: {flight['YRemainingSeats']}")
-            print(f"- Mileage Cost: {flight['YMileageCost']} (Direct Cost: {flight['YDirectMileageCost']})")
-            print(f"- Direct Flight: {'Yes' if flight['YDirect'] else 'No'}")
+            print(f"- {class_name.capitalize()} Available: {'Yes' if flight[f'{class_code}Available'] else 'No'}")
+            print(f"- Seats Available: {flight[f'{class_code}RemainingSeats']}")
+            print(f"- Mileage Cost: {flight[f'{class_code}MileageCost']} (Direct Cost: {flight[f'{class_code}DirectMileageCost']})")
+            print(f"- Direct Flight: {'Yes' if flight[f'{class_code}Direct'] else 'No'}")
             print("\n")
 
-    # print(natural_response.choices[0].message.content)
+    
 
 if __name__ == "__main__":
     main()

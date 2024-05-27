@@ -1,32 +1,38 @@
 [
     {
         "Transfer From": "Amex Membership Rewards",
-        "Transfer Bonus Details": "30% transfer bonus from Amex Membership Rewards to Virgin Atlantic Flying Club",
-        "End Date": "4544305/31/24"
+        "Transfer To": "Virgin Atlantic Flying Club",
+        "Bonus": "30%",
+        "End Date": "05/31/24"
     },
     {
         "Transfer From": "Amex Membership Rewards",
-        "Transfer Bonus Details": "20% transfer bonus from Amex Membership Rewards to AeroMexico ClubPremier",
-        "End Date": "4544305/31/24"
+        "Transfer To": "AeroMexico ClubPremier",
+        "Bonus": "20%",
+        "End Date": "05/31/24"
     },
     {
         "Transfer From": "Citi ThankYou Rewards",
-        "Transfer Bonus Details": "30% transfer bonus from Citi ThankYou Rewards to Qatar Privilege Club Avios",
-        "End Date": "4544305/31/24"
+        "Transfer To": "Qatar Privilege Club Avios",
+        "Bonus": "30%",
+        "End Date": "05/31/24"
     },
     {
         "Transfer From": "Amex Membership Rewards",
-        "Transfer Bonus Details": "40% transfer bonus from Amex Membership Rewards to Hilton [Targeted]",
-        "End Date": "4544305/31/24"
+        "Transfer To": "Hilton [Targeted]",
+        "Bonus": "40%",
+        "End Date": "05/31/24"
     },
     {
         "Transfer From": "Chase Ultimate Rewards",
-        "Transfer Bonus Details": "30% transfer bonus from Chase Ultimate Rewards to Virgin Atlantic Flying Club",
-        "End Date": "4545806/15/24"
+        "Transfer To": "Virgin Atlantic Flying Club",
+        "Bonus": "30%",
+        "End Date": "06/15/24"
     },
     {
         "Transfer From": "Chase Ultimate Rewards",
-        "Transfer Bonus Details": "40% transfer bonus from Chase Ultimate Rewards to Marriott Bonvoy",
-        "End Date": "4545806/15/24"
+        "Transfer To": "Marriott Bonvoy",
+        "Bonus": "40%",
+        "End Date": "06/15/24"
     }
 ]
