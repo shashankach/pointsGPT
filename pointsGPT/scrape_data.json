@@ -1,0 +1,38 @@
+[
+    {
+        "Transfer From": "Amex Membership Rewards",
+        "Transfer To": "Virgin Atlantic Flying Club",
+        "Bonus": "30%",
+        "End Date": "05/31/24"
+    },
+    {
+        "Transfer From": "Amex Membership Rewards",
+        "Transfer To": "AeroMexico ClubPremier",
+        "Bonus": "20%",
+        "End Date": "05/31/24"
+    },
+    {
+        "Transfer From": "Citi ThankYou Rewards",
+        "Transfer To": "Qatar Privilege Club Avios",
+        "Bonus": "30%",
+        "End Date": "05/31/24"
+    },
+    {
+        "Transfer From": "Amex Membership Rewards",
+        "Transfer To": "Hilton [Targeted]",
+        "Bonus": "40%",
+        "End Date": "05/31/24"
+    },
+    {
+        "Transfer From": "Chase Ultimate Rewards",
+        "Transfer To": "Virgin Atlantic Flying Club",
+        "Bonus": "30%",
+        "End Date": "06/15/24"
+    },
+    {
+        "Transfer From": "Chase Ultimate Rewards",
+        "Transfer To": "Marriott Bonvoy",
+        "Bonus": "40%",
+        "End Date": "06/15/24"
+    }
+]

@@ -1,5 +1,6 @@
 [
     {
+<<<<<<< HEAD
         "Transfer From": "Amex Membership Rewards",
         "Transfer To": "Virgin Atlantic Flying Club",
         "Bonus": "30%",
@@ -24,6 +25,8 @@
         "End Date": "05/31/24"
     },
     {
+=======
+>>>>>>> 55ab5aa (I am gay)
         "Transfer From": "Chase Ultimate Rewards",
         "Transfer To": "Virgin Atlantic Flying Club",
         "Bonus": "30%",
@@ -34,5 +37,14 @@
         "Transfer To": "Marriott Bonvoy",
         "Bonus": "40%",
         "End Date": "06/15/24"
+<<<<<<< HEAD
+=======
+    },
+    {
+        "Transfer From": "Citi ThankYou Rewards",
+        "Transfer To": "Turkish Airlines Miles & Smiles [Targeted]",
+        "Bonus": "50%",
+        "End Date": "06/15/24"
+>>>>>>> 55ab5aa (I am gay)
     }
 ]

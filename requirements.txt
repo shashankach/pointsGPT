@@ -1,0 +1,5 @@
+django
+openai
+requests
+beautifulsoup4
+dotenv

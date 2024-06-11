@@ -1,0 +1,282 @@
+{
+    "Aeromexico Club Premier":{
+        "AmEx":null,
+        "Bilt":null,
+        "Capital One":"1:1",
+        "Chase":null,
+        "Citi":"1:1",
+        "Alliance":null
+    },
+    "Air Canada Aeroplan ":{
+        "AmEx":null,
+        "Bilt":"1:1",
+        "Capital One":"1:1",
+        "Chase":"1:1",
+        "Citi":null,
+        "Alliance":"Star Alliance Airlines"
+    },
+    "Air France\/KLM\/Flying Blue":{
+        "AmEx":"1:1",
+        "Bilt":"1:1",
+        "Capital One":"1:1",
+        "Chase":"1:1",
+        "Citi":"1:1",
+        "Alliance":"Sky Team Alliance "
+    },
+    "American Airlines AAdvantage":{
+        "AmEx":null,
+        "Bilt":"1:1",
+        "Capital One":null,
+        "Chase":null,
+        "Citi":null,
+        "Alliance":"Oneworld Allance"
+    },
+    "ANA Mileage Club  ":{
+        "AmEx":"1:1",
+        "Bilt":null,
+        "Capital One":null,
+        "Chase":null,
+        "Citi":null,
+        "Alliance":null
+    },
+    "Asia Miles":{
+        "AmEx":"1:1",
+        "Bilt":null,
+        "Capital One":"1:1",
+        "Chase":null,
+        "Citi":null,
+        "Alliance":null
+    },
+    "Avianca LifeMiles ":{
+        "AmEx":null,
+        "Bilt":null,
+        "Capital One":"1:1",
+        "Chase":null,
+        "Citi":"1:1",
+        "Alliance":null
+    },
+    "British Airways Executive Club":{
+        "AmEx":"1:1",
+        "Bilt":null,
+        "Capital One":"1:1",
+        "Chase":"1:1",
+        "Citi":null,
+        "Alliance":null
+    },
+    "Cathay Pacific":{
+        "AmEx":null,
+        "Bilt":"1:1",
+        "Capital One":"1:1",
+        "Chase":null,
+        "Citi":"1:1",
+        "Alliance":null
+    },
+    "Delta Skymiles":{
+        "AmEx":"1:1",
+        "Bilt":null,
+        "Capital One":null,
+        "Chase":null,
+        "Citi":null,
+        "Alliance":null
+    },
+    "Emirates Skywards":{
+        "AmEx":"1:1",
+        "Bilt":"1:1",
+        "Capital One":"1:1",
+        "Chase":"1:1",
+        "Citi":"1:1",
+        "Alliance":null
+    },
+    "Etihad Guest":{
+        "AmEx":"1:1",
+        "Bilt":null,
+        "Capital One":"1:1",
+        "Chase":null,
+        "Citi":"1:1",
+        "Alliance":null
+    },
+    "EVA Air Infinity MileageLands":{
+        "AmEx":null,
+        "Bilt":null,
+        "Capital One":"2:1.5",
+        "Chase":null,
+        "Citi":"1:1",
+        "Alliance":null
+    },
+    "Finnair":{
+        "AmEx":"1:1",
+        "Bilt":null,
+        "Capital One":"1:1",
+        "Chase":null,
+        "Citi":null,
+        "Alliance":null
+    },
+    "Hawaiian Airlines HawaiianMiles":{
+        "AmEx":null,
+        "Bilt":"1:1",
+        "Capital One":null,
+        "Chase":null,
+        "Citi":null,
+        "Alliance":null
+    },
+    "Iberia Plus ":{
+        "AmEx":"1:1",
+        "Bilt":null,
+        "Capital One":null,
+        "Chase":"1:1",
+        "Citi":null,
+        "Alliance":null
+    },
+    "Jetblue":{
+        "AmEx":null,
+        "Bilt":null,
+        "Capital One":null,
+        "Chase":"1:1",
+        "Citi":"1:1",
+        "Alliance":null
+    },
+    "Qantas Frequent Flyer":{
+        "AmEx":"1:1",
+        "Bilt":null,
+        "Capital One":"1:1",
+        "Chase":null,
+        "Citi":"1:1",
+        "Alliance":null
+    },
+    "Qatar Airways":{
+        "AmEx":null,
+        "Bilt":null,
+        "Capital One":null,
+        "Chase":null,
+        "Citi":"1:1",
+        "Alliance":null
+    },
+    "SAS EuroBonus":{
+        "AmEx":"1:1",
+        "Bilt":null,
+        "Capital One":null,
+        "Chase":null,
+        "Citi":null,
+        "Alliance":null
+    },
+    "Singapore KrisFlyer ":{
+        "AmEx":"3:2",
+        "Bilt":null,
+        "Capital One":"1:1",
+        "Chase":"1:1",
+        "Citi":"1:1",
+        "Alliance":null
+    },
+    "SouthWest Airlines":{
+        "AmEx":null,
+        "Bilt":null,
+        "Capital One":null,
+        "Chase":"1:1",
+        "Citi":null,
+        "Alliance":null
+    },
+    "TAP Miles &Go":{
+        "AmEx":null,
+        "Bilt":null,
+        "Capital One":"1:1",
+        "Chase":null,
+        "Citi":null,
+        "Alliance":null
+    },
+    "Thai Airways":{
+        "AmEx":null,
+        "Bilt":null,
+        "Capital One":null,
+        "Chase":null,
+        "Citi":"1:1",
+        "Alliance":null
+    },
+    "Turkish Airlines":{
+        "AmEx":null,
+        "Bilt":"1:1",
+        "Capital One":"1:1",
+        "Chase":null,
+        "Citi":"1:1",
+        "Alliance":null
+    },
+    "United Mileage Plus":{
+        "AmEx":null,
+        "Bilt":"1:1",
+        "Capital One":null,
+        "Chase":"1:1",
+        "Citi":null,
+        "Alliance":null
+    },
+    "Virgin Atlantic Flying Club":{
+        "AmEx":"1:1",
+        "Bilt":"1:1",
+        "Capital One":"1:1",
+        "Chase":"1:1",
+        "Citi":"1:1",
+        "Alliance":null
+    },
+    "Accor Live Limitless (ALL)":{
+        "AmEx":null,
+        "Bilt":null,
+        "Capital One":"2:1",
+        "Chase":null,
+        "Citi":null,
+        "Alliance":null
+    },
+    "Choice Privileges ":{
+        "AmEx":null,
+        "Bilt":null,
+        "Capital One":"1:1",
+        "Chase":null,
+        "Citi":"2:1",
+        "Alliance":null
+    },
+    "Hilton Honors":{
+        "AmEx":"1:2",
+        "Bilt":null,
+        "Capital One":null,
+        "Chase":null,
+        "Citi":null,
+        "Alliance":null
+    },
+    "IHG Rewards Club":{
+        "AmEx":null,
+        "Bilt":"1:1",
+        "Capital One":null,
+        "Chase":"1:1",
+        "Citi":null,
+        "Alliance":null
+    },
+    "Marriott Bonvoy ":{
+        "AmEx":"2:3",
+        "Bilt":null,
+        "Capital One":null,
+        "Chase":"1:1",
+        "Citi":null,
+        "Alliance":null
+    },
+    "Radisson Rewards":{
+        "AmEx":"1:3",
+        "Bilt":null,
+        "Capital One":null,
+        "Chase":null,
+        "Citi":null,
+        "Alliance":null
+    },
+    "World of Hyatt":{
+        "AmEx":null,
+        "Bilt":"1:1",
+        "Capital One":null,
+        "Chase":"1:1",
+        "Citi":null,
+        "Alliance":null
+    },
+    "Wyndham Rewards":{
+        "AmEx":null,
+        "Bilt":null,
+        "Capital One":"1:1",
+        "Chase":null,
+        "Citi":"1:1",
+        "Alliance":null
+    }
+}

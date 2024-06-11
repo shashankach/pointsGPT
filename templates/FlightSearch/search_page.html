@@ -1,0 +1,118 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div id="flightCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        {% for flight in flights %}
+        
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <div class="card text-dark bg-light mx-auto " style="width: 90%;">
+                <div class="card-body m-4">
+                    <div class="row">
+                        <h5 class="card-title">Flight Details {{ flight.flight_number }}</h5>
+                    </div>
+                    <div class="row">
+                        {% if flight.partner %}
+                            <p> {{ flight.partner }} </p>
+                        {% endif %}
+                    </div>
+                    <div class="row">
+                        {% if flight.bonus %}
+                            <p> {{ flight.bonus }} </p>
+                        {% endif %}
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text">
+                                <strong>Program:</strong>
+                                <input type="text" class="form-control" value="{{ flight.program }}" disabled>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text">
+                                <strong>Date:</strong>
+                                <input type="text" class="form-control" value="{{ flight.date }}" disabled>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text">
+                                <strong>Airline:</strong>
+                                <input type="text" class="form-control" value="{{ flight.airline }}" disabled>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text">
+                                <strong>Direct Flight:</strong>
+                                <input type="text" class="form-control" value="{{ flight.direct_flight }}" disabled>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text">
+                                <strong>Origin:</strong>
+                                <input type="text" class="form-control" value="{{ flight.origin }}" disabled>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text">
+                                <strong>Destination:</strong>
+                                <input type="text" class="form-control" value="{{ flight.destination }}" disabled>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text">
+                                <strong>Class Available:</strong>
+                                <input type="text" class="form-control" value="{{ flight.class_available }}" disabled>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text">
+                                <strong>Seats Available:</strong>
+                                <input type="text" class="form-control" value="{{ flight.seats_available }}" disabled>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text">
+                                <strong>Mileage Cost:</strong>
+                                <input type="text" class="form-control" value="{{ flight.mileage_cost }}" disabled>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text">
+                                <strong>Direct Cost:</strong>
+                                <input type="text" class="form-control" value="{{ flight.direct_cost }}" disabled>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="carousel-indicators">
+            {% for flight in flights %}
+                <button type="button" style="background-color: black;" data-bs-target="#flightCarousel" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% endif %}" aria-label="Slide {{ forloop.counter }}"></button>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#flightCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button> -->
+  </div>
+
+  <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button class="carousel-control-next" type="button" data-bs-target="#flightCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button> -->
+</div>
+{% endblock %}
